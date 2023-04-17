@@ -1,0 +1,545 @@
+:root{
+  --vivid-green: #00cf00;
+  --vivid-yellow: #eaf31c;
+  --vivid-blue: #3a3a8f;
+  --vivid-purple: #783a8f;
+  --vivid-blue-with-transparence: #3a3a8f88;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #e6e4ff;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.button-container-icon-button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: fit-content;
+  height: fit-content;
+}
+/* LOAD STYLES */
+@keyframes motion {
+  from{top: 0px;}
+  to{top: -30px;}
+}
+@keyframes motion_after {
+  from{
+    top: 70%;
+    height: 10px;
+    width: 15px;
+  }
+  to{
+    top: calc(70% + 30px);
+    left: 50%;
+    height: 5px;
+    width: 5px;
+  }
+}
+.dot{
+  animation-name: motion;
+  animation-duration: .5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.dot::after{
+  animation-name: motion_after;
+  animation-duration: .5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.dot-2{
+
+  animation-delay: .1s;
+}
+.dot-2::after{
+
+  animation-delay: .1s;
+}
+.dot-3{
+
+  animation-delay: .2s;
+}
+.dot-3::after{
+
+  animation-delay: .2s;
+}
+/* LOAD STYLES */
+/* -------------------- */
+/* EXTERNALS CONTAINERS */
+.sup-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.container{
+
+  width: 100%;
+}
+.left{
+  position: relative;
+  width: 60%;
+  min-width: 420px;
+  border-radius: 0 25px 25px 0;
+  box-shadow: 0px 0px 15px #0008;
+
+  overflow: hidden;
+}
+.right{
+  padding: 10px;
+  padding-left: 20px;
+  overflow-y: auto;
+}
+/* EXTERNALS CONTAINERS */
+/* -------------------- */
+/* HEADER LEFT */
+.container-options{
+  background-color: var(--vivid-blue); 
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0px 0px 15px #2248;
+}
+.options-bg{
+  position: absolute;
+  background-color: var(--vivid-blue-with-transparence);
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.options{
+  display: flex;
+  justify-content: space-evenly;
+  height: 0px;
+  overflow: hidden;
+  transition: .3s;
+}
+.options-show-hide{
+  display: flex;
+  justify-content: center;
+}
+.options-show-hide span{
+  color: #eee;
+  margin: 3px;
+  padding: 5px;
+}
+.options-show-hide #icon-button-show-hide{
+  cursor: pointer;
+  transition: .5s;
+  border-radius: 50%;
+  padding: 3px;
+
+  position: absolute;
+  right: 10px;
+}
+.options-show-hide #icon-button-show-hide:hover{
+  
+  background-color: #eee8;
+}
+.button-select-mode{
+  background-color: #eee;
+  margin: 5px 0;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--vivid-blue);
+  border-radius: 10px;
+  transition: .3s;
+}
+.button-select-mode:hover{
+  background-color: #dfdfdf;
+  box-shadow: 0px 0px 10px #eee;
+}
+.button-select-mode span{
+  font-size: 2em;
+  cursor: pointer;
+}
+.settings{
+  background-color: transparent;
+  padding: 5px;
+  color: var(--vivid-blue);
+  border-radius: 50%;
+  transition: none;
+  cursor: pointer;
+}
+.settings:hover{
+  background-color: #ddd8;
+  box-shadow: none;
+}
+.button-container-icon-button:focus .settings{
+  background-color: #ddd8;
+  box-shadow: none;
+}
+.settings span{
+  padding: 5px;
+  font-size: 1.2em;
+  color: #eee;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+[data-to_container=".container-calc"][data-active="true"]{
+  background-color: var(--vivid-yellow);
+  color: var(--vivid-blue);
+}
+
+[data-to_container=".container-converter"][data-active="true"]{
+  background-color: var(--vivid-purple);
+  color: var(--vivid-green);
+}
+
+[data-to_container=".container-generate-key"][data-active="true"]{
+  background-color: var(--vivid-green);
+  color: var(--vivid-blue);
+}
+
+.container-functions{
+  background-color: #888;
+  padding-top: 25px;
+  height: 100%;
+}
+/* HEADER LEFT */
+/* -------------------- */
+/* CALC */
+.container-calc{
+  background-color: var(--vivid-yellow);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* VISOR */
+.container-visor{
+  background-color: var(--vivid-blue-with-transparence);
+  margin: 15px;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #433e70;
+
+  border: 5px solid var(--vivid-blue);
+  border-radius: 20px;
+}
+.container-visor div.section{
+
+  height: calc(100% / 3);
+}
+.container-visor #input{
+
+  height: 50%;
+}
+.visor{
+  background: none;
+  padding: 3px 5px;
+  width: 100%;
+
+  display: block;
+  text-decoration: none;
+  text-align: right;
+  font-family: 'Mitr', sans-serif;
+  font-weight: 300;
+
+  border: none;
+  outline: none;
+}
+#history{
+  position: relative;
+  display: flex;
+
+  overflow: hidden;
+}
+#container-old-calcs{
+
+  position: relative;
+}
+#container-old-calcs{
+
+  position: relative;
+}
+#old-calcs{
+  position: absolute;
+  bottom: 0;
+}
+.old-calcs-list:hover{
+  background-color: var(--vivid-blue-with-transparence);
+  cursor: pointer;
+  white-space: nowrap;
+}
+#input{
+
+  display: flex;
+}
+#container-button-clear, #container-button-history{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.container-visor .icon-button{
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.container-visor .icon-button:hover{
+
+  background-color: #0003;
+}
+.container-visor .button-container-icon-button:focus .icon-button{
+
+  background-color: #0003;
+}
+#real-input{
+  height: 100%;
+  font-size: 3em;
+  color: #433e70;
+}
+#output{
+
+  font-size: 1.8em;
+}
+/* VISOR */
+/* -------------------- */
+/* KEYBOARD */
+.container-keyboard{
+
+  padding: 10px;
+}
+.keyboard{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+.key{
+  position: relative;
+  margin: 0 auto;
+
+  width: 50px;
+  height: 50px;
+  
+  border: 1px solid #eee0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: .3s;
+}
+.key:hover{
+  background-color: #88d8;
+  border: 1px solid #88d8;
+}
+.key:active{
+  background-color: #88d;
+  border: 1px solid #88d;
+}
+.inner-key{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+
+  color: #433e70;
+  font-family: 'Mitr', sans-serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  text-align: center;
+}
+.operators{
+  font-size: 1.25em;
+  border-color: #88d;
+}
+#keyboard{
+
+  min-height: 10;
+}
+#submit{
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  font-size: 1.5em;
+}
+/* KEYBOARD */
+/* CALC */
+/* -------------------- */
+/* CONVERTER */
+.container-converter{
+  background-color: var(--vivid-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-form-converter{
+  position: relative;
+  top: -10%;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+.content-form-converter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-inputs{
+  flex-direction: column;
+  gap: 30px;
+}
+.content-form-converter .row-input{
+
+  display: flex;
+}
+.content-form-converter div.icon-button{
+  cursor: pointer;
+  padding: 8px;
+}
+.content-form-converter div.icon-button:hover{
+  background-color: #eee8;
+  border-radius: 50%;
+}
+.content-form-converter .button-container-icon-button:focus div.icon-button{
+  background-color: #eee8;
+  border-radius: 50%;
+}
+.content-form-converter span.icon-button{
+  padding: 3px;
+  color: #eee;
+  font-size: 1.5em;
+  border: 1px solid #eee;
+  border-radius: 50%;
+}
+.input-converter{
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  margin: 0;
+}
+.input-converter:focus{
+
+  box-shadow: -5px 5px 15px #eee;
+}
+.select-converter:focus{
+
+  box-shadow: 5px 5px 15px #eee;
+}
+/* CONVERTER */
+/* -------------------- */
+/* GENERATE KEY */
+.container-generate-key{
+  background-color: var(--vivid-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-form-generate-key, .content-form-generate-key{
+  position: relative;
+  top: -5%;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container-form-generate-key, .content-form-generate-key{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+label.generate-key-form-item{
+  color: #fff;
+  font-size: 1.3em;
+}
+.container-set-template{
+
+  display: flex;
+}
+.container-set-template select,.container-set-template input{
+  height: 40px;
+  width: 100%;
+}
+.container-set-template select{
+  width: fit-content;
+}
+input.generate-key-form-item, select.generate-key-form-item, button.generate-key-form-item{
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+input.generate-key-form-item:focus, select.generate-key-form-item:focus{
+  
+  box-shadow: 0px 0px 20px #eee;
+}
+button.generate-key-form-item{
+  background-color: var(--vivid-purple);
+  color: #fff;
+  cursor: pointer;
+}
+button.generate-key-form-item:hover, button.generate-key-form-item:focus,button.response-generate-key:hover,button.response-generate-key:focus{
+
+  box-shadow: 0px 0px 10px #eee;
+}
+.container-response-generate-key{
+  position: relative;
+  top: -10%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+input.response-generate-key{
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #eee0, #eee);
+  padding: 10px;
+  padding-bottom: 5px;
+  display: block;
+  width: 100%;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 2em;
+  color: ;
+  text-align: center;
+
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #eee;
+}
+div.response-generate-key{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+button.response-generate-key{
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+
+  color: #fff;
+  cursor: pointer;
+}
+button.response-generate-key.retry{
+
+  background-color: var(--vivid-purple);
+}
+button.response-generate-key.new{
+
+  background-color: var(--vivid-blue);
+}
+/* GENERATE KEY */
+/* -------------------- */
