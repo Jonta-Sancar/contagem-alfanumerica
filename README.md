@@ -1,4 +1,5 @@
 # contagem-alfanumerica
+
 Objetivos iniciais:
 <br>
 1 - realizar a contagem(soma) de valores alfanuméricos (0 - Z)
